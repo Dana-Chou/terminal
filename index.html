@@ -17,12 +17,12 @@
         <div class="name">Dana Chou</div>
         <div class="tagline">
           <span class="hl">Deep tech software designer slinging code. No engineers have complained yet.</span><br><Br>
-          Click on an action below, or type them into the command line.<br>
+          Select or type any of the actions below into the command line.<br>
         </div>
       </div>
 
       <div class="hints">
-        <span class="hints-lead"><i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i></span><span class="cmd" onclick="runCommand('work')">work</span> &nbsp;
+        <span class="hints-lead"><span class="cmd" onclick="runCommand('work')">work</span> &nbsp;
         <span class="cmd" onclick="runCommand('how')">how</span> &nbsp;
         <span class="cmd" onclick="runCommand('now')">now</span> &nbsp;
         <span class="cmd" onclick="runCommand('changelog')">changelog</span> &nbsp;
@@ -34,7 +34,6 @@
     </div>
 
     <div id="input-bar">
-      <span class="input-prompt-char"><i data-lucide="chevron-right" class="lucide-icon" aria-hidden="true"></i></span>
       <input id="cmd-input" type="text" placeholder="type a command or ask anything..." autocomplete="off" spellcheck="false" />
     </div>
   </div>
@@ -42,7 +41,7 @@
   <!-- RIGHT -->
   <div id="right">
     <div id="panel-header">
-      <span id="panel-co" class="panel-co-placeholder"><i data-lucide="arrow-left" class="lucide-icon panel-co-arrow" aria-hidden="true"></i><span class="panel-co-msg">run 'work' to preview</span></span>
+      <span id="panel-co" class="panel-co-placeholder"><span class="panel-co-msg">type or click 'work'</span></span>
       <span id="panel-role"></span>
       <span id="panel-blurb"></span>
     </div>
@@ -61,6 +60,8 @@
 </div>
 
 <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="dana-context.js"></script>
+<script src="changelog.js"></script>
 <script>
 function iconHtml(name, extraClass = '') {
   const cls = ['lucide-icon', extraClass].filter(Boolean).join(' ');
@@ -70,84 +71,6 @@ function iconHtml(name, extraClass = '') {
 function refreshLucide() {
   if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
 }
-
-const DANA_CONTEXT = `You are the terminal on Dana Chou's portfolio site. Answer questions about Dana only.
-
-RULES:
-- 2-3 sentences max. Fragments fine. No bullets. No headers.
-- Voice: dry but approachable, self-aware. Match the terminal aesthetic. always be concise and clear.
-- Never invent details not listed below.
-- If asked something not covered here, respond exactly: "not in the docs."
-- If asked for contact: dccusr@gmail.com
-- If asked about Airbase product details or code: "Follow Airbase on X and LinkedIn! Lot's of exciting stuff coming soon."
-
-DANA:
-NYC-based software designer turned... whatever designers are these days. Now spending a lot of time in the Airbase codebase. 
-This was definitely not the plan, but I'm loving the rush that comes with shipping to prod.
-Workflow: a ton of whiteboarding with engineers to define core product capabilities and requirements. 
-Then, leveraging Paper.app, Figma MCP, and Cursor to refine and polish interface designs.
-
-AIRBASE (Jan 2026–present):
-First founding designer. Owns all things product and brand design. Helped rename and overhaul the company brand before coming
-out of stealth on March 25, 2026. I own 100% of the Airbase brand design, logo, identity, website, and social media presence.
-I helped write press releases, coordinate press coverage, and run the launch campaign with our CEOwith help from
-a16z and Squadra Ventures.
-On the proudct side, I own the platform design system, user research and testing, and support BD efforts. I work with our CTO to
-define roadmap priorities and feature sets. I work with our founding engineers to define new services, capabilities, and features.
-I've built Claude skills for engineers to help them with UI polish, linting, and opinionated design reviews. Proud of my ~300 GitHub 
-contributions so far - a personal PR. Loving every minute of Airbase. 
-
-GECKO ROBOTICS (2025–2026):
-Cantilever — AI + robotics platform for industrial inspection. Worked on US Navy, US Air Force, oil & gas, and power accounts.
-Within first 4 months, helped ship: first-ever enterprise-wideLLM agent interface allowing operators to build context around 
-historic asset health data, capital allocation, risk management, and official inspection standards. Also designed case management 
-workflows for root cause analysis, anomaly detection, and maintenance. Also designed 2D visualizations of predictive maintenance and 
-inspection schedules. 
-Designed new components and design system patterns for the enterprise LLM agent.
-Started with zero git knowledge and zero experience with Cursor. By month 6, was opening PRs that engineers approved and merged into prod.
-
-TRUE ANOMALY (Oct 2023–Jul 2025):
-Mosaic — satellite TT&C. First design hire. Solo designer.
-Full overhaul: Unity legacy → React web platform. Owned 0→1 design system, IA, operator workflows, 2D/3D visualizations.
-Led eng teams of up to 30. Reported to VP of Software. GTM team rep.
-Software currently in use on-orbit. Ran two SpaceX-launched missions.
-
-BLUEHALO / Citadel Defense (Jun 2021–Oct 2023):
-Titan C-UAS — counter-drone system. First designer hired at Citadel, stayed through BlueHalo acquisition.
-66% of "hardware performance" tickets were UX failures. Redesigned IA, rewrote settings language, unified 800+ components.
-35% drop in tickets. 100% customer satisfaction on re-engagement. $75M+ sales, DoD Program of Record. Contributed to M&A.
-
-CURRENT:
-Building eslint-plugin-design-system — ESLint rules enforcing design tokens in production code. Next: MCP server wrapper.
-This terminal is the a16z Design Engineer Fellowship application.
-
-VOICE EXAMPLES:
-Q: What's your design process?
-A: Figma, Paper.app, MCP, Cursor.
-
-Q: Do you know React?
-A: I know enough... engineers haven't complained yet.
-
-Q: How did you get into deep tech?
-A: Not enough tokens for the full story, but my first job out of college at BlueHalo was where I cut my teeth in the defense tech industry. It was honor to support system deployments to Ukraine, and witnessing the system earn a DoD Program of Record.
-
-Q: Can I see the Airbase work?
-A: NDA. Can't. Classic founding designer situation.
-
-Q: What's your email?
-A: dccusr@gmail.com. do reach out!
-
-Q: Did you go to school for engineering?
-A: No. BA in Speculative Design, UCSD. Did not pass my Java course.
-
-Q: How did you learn to code?
-A: Learned from Jake Zien who was a web developer turned designer and my amazing manager at Gecko. Owe him a lot. Also, building custom Tumblr themes in middle school.
-
-Q: What is this site built with?
-A: Vanilla HTML, CSS, JS. Anthropic API for the ask function. Built using Paper.app and Cursor.
-
-Q: Why did you leave Gecko?
-A: Not enough tokens for the full story, but a friend/old-coworker presented me with a founding opportunity that I simply couldn't pass up. I'm still in close touch with some of the incredible folks at Gecko, and am rooting for their incredible mission.`;
 
 /* ── WORK DATA ──
    Replace img paths with your actual screenshot filenames.
@@ -246,30 +169,26 @@ const COMMANDS = {
   now: () => `<div class="output-block">
     <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">now</span></div>
     <div class="output-content">
-      <div class="section-label">current</div>
-      <div class="now-line"><span class="hl">Building</span> at Airbase — brand, product, and code. Named the company. Still shipping daily.</div>
-      <div class="now-line now-line--spaced"><span class="hl">Building</span> eslint-plugin-design-system — ESLint rules enforcing design tokens in production. Next: MCP wrapper.</div>
-      <div class="now-line now-line--spaced"><span class="hl">Applying</span> to the a16z Design Engineer Fellowship. <span class="dim">(you're looking at it)</span></div>
-      <div class="now-line now-line--location">Brooklyn, NY. Available for IRL in NYC.</div>
-    </div>
+      <div class="now-line">
+        <span>
+          Founding Designer at <a href="https://airbase.us" style="color: #FAFAFA; text-decoration: none;" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='#FAFAFA';" onmouseout="this.style.textDecoration='none';" target="_blank" rel="noopener noreferrer">Airbase</a> (a16z), building the brand, product, and office polaroid wall.
+     
+        </span>
+      </div>
   </div>`,
 
-  changelog: () => `<div class="output-block">
+  changelog: () => {
+    const rows = CHANGELOG_ENTRIES.map(
+      (e) => `<div class="cl-entry"><span class="cl-v">${e.v}</span><span class="cl-text">${e.body}</span></div>`
+    ).join('');
+    return `<div class="output-block">
     <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">changelog</span></div>
     <div class="output-content">
-      <div class="section-label">release notes</div>
-      <div class="cl-entry"><span class="cl-v">v0.1</span><span class="cl-text">Joined True Anomaly as first product design hire. <span class="hl">Led engineering teams of up to 30</span> as a solo designer. Did not realize this was unusual.</span></div>
-      <div class="cl-entry"><span class="cl-v">v0.5</span><span class="cl-text">Rebuilt Mosaic from Unity to React. Owned the 0→1 design system, IA, operator workflows, visualizations. <span class="hl">Software ran two SpaceX missions.</span> Still the thing I'm most proud of.</span></div>
-      <div class="cl-entry"><span class="cl-v">v0.8</span><span class="cl-text">BlueHalo. First designer. Found that <span class="hl">66% of support tickets were UX problems</span> disguised as hardware failures. Fixed the UX. Tickets dropped 35%. Contributed to M&A.</span></div>
-      <div class="cl-entry"><span class="cl-v">v1.0</span><span class="cl-text">Joined Gecko Robotics. <span class="hl">Did not know what git was.</span> Asked an engineer what a pull request was. He was polite about it.</span></div>
-      <div class="cl-entry"><span class="cl-v">v1.3</span><span class="cl-text">Built a net-new LLM agent interface and AI design system at Gecko. Shipped platform-wide. <span class="hl">Started opening PRs.</span> Engineers approved them.</span></div>
-      <div class="cl-entry"><span class="cl-v">v1.6</span><span class="cl-text">Joined a stealth startup as founding designer. <span class="hl">Named the company.</span> Logo, brand, website, press campaign. Discovered Figma MCP + Cursor. Closed the gap between design and production.</span></div>
-      <div class="cl-entry"><span class="cl-v">v1.8</span><span class="cl-text">Built <span class="hl">Claude skills for the engineering team</span>. UI polish, linting, design reviews. Engineers use them daily.</span></div>
-      <div class="cl-entry"><span class="cl-v">v1.9</span><span class="cl-text">Realized design quality erodes at the code level, not the design level. Started thinking about enforcement, not documentation.</span></div>
-      <div class="cl-entry"><span class="cl-v">v2.0</span><span class="cl-text"><span class="hl">~300 GitHub contributions in 4 months.</span> Building eslint-plugin-design-system. Did not predict this trajectory.</span></div>
-      <div class="cl-entry"><span class="cl-v">v2.1</span><span class="cl-text">Built a terminal instead of a portfolio. <span class="hl">Applying to a16z Design Engineer Fellowship.</span> Feels correct.</span></div>
+      <div class="section-label">${CHANGELOG_SECTION_TITLE}</div>
+      ${rows}
     </div>
-  </div>`,
+  </div>`;
+  },
 
   help: () => `<div class="output-block">
     <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">help</span></div>
