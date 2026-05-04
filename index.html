@@ -22,7 +22,7 @@
       </div>
 
       <div class="hints">
-        → <span class="cmd" onclick="runCommand('work')">work</span> &nbsp;
+        <span class="hints-lead"><i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i></span><span class="cmd" onclick="runCommand('work')">work</span> &nbsp;
         <span class="cmd" onclick="runCommand('how')">how</span> &nbsp;
         <span class="cmd" onclick="runCommand('now')">now</span> &nbsp;
         <span class="cmd" onclick="runCommand('changelog')">changelog</span> &nbsp;
@@ -34,7 +34,7 @@
     </div>
 
     <div id="input-bar">
-      <span class="input-prompt-char">❯</span>
+      <span class="input-prompt-char"><i data-lucide="chevron-right" class="lucide-icon" aria-hidden="true"></i></span>
       <input id="cmd-input" type="text" placeholder="type a command or ask anything..." autocomplete="off" spellcheck="false" />
     </div>
   </div>
@@ -42,13 +42,13 @@
   <!-- RIGHT -->
   <div id="right">
     <div id="panel-header">
-      <span id="panel-co">← run 'work' to preview</span>
+      <span id="panel-co" class="panel-co-placeholder"><i data-lucide="arrow-left" class="lucide-icon panel-co-arrow" aria-hidden="true"></i><span class="panel-co-msg">run 'work' to preview</span></span>
       <span id="panel-role"></span>
       <span id="panel-blurb"></span>
     </div>
     <div id="panel-image">
       <div class="panel-empty" id="panel-empty">
-        type 'work'<br>click a role<br>use ← → to browse
+        type 'work'<br>click a role<br><span class="panel-empty-nav">use <i data-lucide="chevron-left" class="lucide-icon" aria-hidden="true"></i><i data-lucide="chevron-right" class="lucide-icon" aria-hidden="true"></i> to browse</span>
       </div>
     </div>
     <div id="panel-footer">
@@ -60,7 +60,17 @@
 
 </div>
 
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <script>
+function iconHtml(name, extraClass = '') {
+  const cls = ['lucide-icon', extraClass].filter(Boolean).join(' ');
+  return `<i data-lucide="${name}" class="${cls}" aria-hidden="true"></i>`;
+}
+
+function refreshLucide() {
+  if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+}
+
 const DANA_CONTEXT = `You are the terminal on Dana Chou's portfolio site. Answer questions about Dana only.
 
 RULES:
@@ -149,7 +159,7 @@ const WORK = [
     co: 'Airbase',
     role: 'Founding Designer · Jan 2026–present',
     blurb: 'Building TONS. 75% Cursor, 15% Paper.design, 10% physical whiteboards.',
-    desc: `Building TONS. 75% Cursor, 15% Paper.design, 10% physical whiteboards.</span>`,
+    desc: `Building TONS. 75% Cursor, 15% Paper.design, 10% physical whiteboards.`,
     tags: ['Seriously 0→1','Claude Skills','Design System','Branding','Cursor'],
     screens: [
       { img: 'airbase-01.png', label: 'brand identity system' },
@@ -202,7 +212,7 @@ const WORK = [
 const COMMANDS = {
   work: () => {
     const html = `<div class="output-block">
-      <div class="prompt-line"><span class="prompt-char">❯</span><span class="prompt-cmd">work</span></div>
+      <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">work</span></div>
       <div class="output-content">
         <div class="section-label">experience</div>
         ${WORK.map((w,i) => `<div class="work-entry" id="we-${i}" onclick="selectWork(${i})">
@@ -221,7 +231,7 @@ const COMMANDS = {
   },
 
   how: () => `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">❯</span><span class="prompt-cmd">how</span></div>
+    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">how</span></div>
     <div class="output-content">
       <div class="section-label">workflow</div>
       <div class="how-step"><span class="num">01 — design</span><span class="text">Everything starts in <span class="hl">Figma</span>. Tokens, components, spacing — decided before a line of code is written.</span></div>
@@ -234,7 +244,7 @@ const COMMANDS = {
   </div>`,
 
   now: () => `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">❯</span><span class="prompt-cmd">now</span></div>
+    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">now</span></div>
     <div class="output-content">
       <div class="section-label">current</div>
       <div class="now-line"><span class="hl">Building</span> at Airbase — brand, product, and code. Named the company. Still shipping daily.</div>
@@ -245,7 +255,7 @@ const COMMANDS = {
   </div>`,
 
   changelog: () => `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">❯</span><span class="prompt-cmd">changelog</span></div>
+    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">changelog</span></div>
     <div class="output-content">
       <div class="section-label">release notes</div>
       <div class="cl-entry"><span class="cl-v">v0.1</span><span class="cl-text">Joined True Anomaly as first product design hire. <span class="hl">Led engineering teams of up to 30</span> as a solo designer. Did not realize this was unusual.</span></div>
@@ -262,7 +272,7 @@ const COMMANDS = {
   </div>`,
 
   help: () => `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">❯</span><span class="prompt-cmd">help</span></div>
+    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">help</span></div>
     <div class="output-content">
       <div class="help-block">
         work &nbsp;&nbsp;&nbsp;&nbsp;— roles and what was built<br>
@@ -270,8 +280,8 @@ const COMMANDS = {
         now &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— what's being built right now<br>
         changelog — the real story<br>
         clear &nbsp;&nbsp;&nbsp;— clear terminal<br>
-        <span class="help-block-dim">← → &nbsp;&nbsp;&nbsp;&nbsp;— browse screenshots on the right<br>
-        anything else → ask</span>
+        <span class="help-block-dim">${iconHtml('chevron-left','help-kbd-icon')}${iconHtml('chevron-right','help-kbd-icon')} &nbsp;&nbsp;&nbsp;&nbsp;— browse screenshots on the right<br>
+        anything else ${iconHtml('arrow-right','help-kbd-icon')} ask</span>
       </div>
     </div>
   </div>`,
@@ -297,6 +307,7 @@ function updatePanel() {
 
   const panelCo = document.getElementById('panel-co');
   panelCo.textContent = w.co;
+  panelCo.classList.remove('panel-co-placeholder');
   panelCo.classList.add('panel-co--active');
   document.getElementById('panel-role').textContent = w.role;
   document.getElementById('panel-blurb').textContent = w.blurb;
@@ -322,7 +333,9 @@ function updatePanel() {
 
   document.getElementById('panel-label').textContent = s.label;
   document.getElementById('panel-counter').textContent = `${activeScreen + 1} / ${w.screens.length}`;
-  document.getElementById('panel-hint').textContent = '← → to browse';
+  const hintEl = document.getElementById('panel-hint');
+  hintEl.innerHTML = `${iconHtml('chevron-left','panel-hint-icon')}${iconHtml('chevron-right','panel-hint-icon')}<span class="panel-hint-label"> to browse</span>`;
+  refreshLucide();
 }
 
 function nextScreen(dir) {
@@ -358,6 +371,7 @@ function runCommand(raw) {
 
   if (COMMANDS[lower]) {
     output.insertAdjacentHTML('beforeend', COMMANDS[lower]());
+    refreshLucide();
     input.value = '';
     scrollBottom();
     return;
@@ -371,12 +385,13 @@ function runCommand(raw) {
 async function runAI(question) {
   const id = 'ai-' + Date.now();
   output.insertAdjacentHTML('beforeend', `<div class="output-block" id="${id}">
-    <div class="prompt-line"><span class="prompt-char">❯</span><span class="prompt-cmd">${escapeHtml(question)}</span></div>
+    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">${escapeHtml(question)}</span></div>
     <div class="output-content">
       <div class="section-label">response</div>
       <div class="ai-text" id="${id}-text"><span class="text-muted-loading">...</span></div>
     </div>
   </div>`);
+  refreshLucide();
   scrollBottom();
 
   try {
@@ -445,6 +460,7 @@ input.addEventListener('keydown', e => {
 });
 
 input.focus();
+refreshLucide();
 </script>
 </body>
 </html>
