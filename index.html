@@ -204,7 +204,7 @@ const COMMANDS = {
         process &nbsp;&nbsp;— design workflow<br>
         changelog — the real story<br>
         clear &nbsp;&nbsp;&nbsp;— clear terminal<br>
-        <span class="help-block-dim">${iconHtml('chevron-left','help-kbd-icon')}${iconHtml('chevron-right','help-kbd-icon')} &nbsp;&nbsp;&nbsp;&nbsp;— browse screenshots on the right<br>
+        <span class="help-block-dim">${iconHtml('arrow-left','help-kbd-icon')}${iconHtml('arrow-right','help-kbd-icon')} &nbsp;&nbsp;&nbsp;&nbsp;— browse screenshots on the right<br>
         anything else ${iconHtml('arrow-right','help-kbd-icon')} ask</span>
       </div>
     </div>
@@ -257,7 +257,7 @@ function updatePanel() {
   document.getElementById('panel-label').textContent = s.label;
   document.getElementById('panel-counter').textContent = `${activeScreen + 1} / ${w.screens.length}`;
   const hintEl = document.getElementById('panel-hint');
-  hintEl.innerHTML = `${iconHtml('chevron-left','panel-hint-icon')}${iconHtml('chevron-right','panel-hint-icon')}<span class="panel-hint-label"> to browse</span>`;
+  hintEl.innerHTML = `${iconHtml('arrow-left','panel-hint-icon')}${iconHtml('arrow-right','panel-hint-icon')}<span class="panel-hint-label"> to browse</span>`;
   refreshLucide();
 }
 
