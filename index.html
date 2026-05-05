@@ -16,15 +16,14 @@
       <div class="intro">
         <div class="name">Dana Chou</div>
         <div class="tagline">
-          <span class="hl">Deep tech software designer slinging code. No engineers have complained yet.</span><br><Br>
-          Select or type any of the actions below into the command line.<br>
+          Deep tech software designer slinging some code around. No one has complained yet.<br><Br>
+          Select or type one of these into the command line.<br>
         </div>
       </div>
 
       <div class="hints">
         <span class="hints-lead"><span class="cmd" onclick="runCommand('work')">work</span> &nbsp;
-        <span class="cmd" onclick="runCommand('how')">how</span> &nbsp;
-        <span class="cmd" onclick="runCommand('now')">now</span> &nbsp;
+        <span class="cmd" onclick="runCommand('process')">process</span> &nbsp;
         <span class="cmd" onclick="runCommand('changelog')">changelog</span> &nbsp;
         <span class="cmd" onclick="runCommand('what did you build at airbase?')">ask me anything</span>
       </div>
@@ -41,13 +40,11 @@
   <!-- RIGHT -->
   <div id="right">
     <div id="panel-header">
-      <span id="panel-co" class="panel-co-placeholder"><span class="panel-co-msg">type or click 'work'</span></span>
+      <span id="panel-co" class="panel-co-placeholder"></span>
       <span id="panel-role"></span>
     </div>
     <div id="panel-image">
-      <div class="panel-empty" id="panel-empty">
-        type 'work'<br>click a role<br><span class="panel-empty-nav">use <i data-lucide="chevron-left" class="lucide-icon" aria-hidden="true"></i><i data-lucide="chevron-right" class="lucide-icon" aria-hidden="true"></i> to browse</span>
-      </div>
+      <div class="panel-empty" id="panel-empty"></div>
     </div>
     <div id="panel-footer">
       <span id="panel-label"></span>
@@ -132,7 +129,6 @@ const COMMANDS = {
     const html = `<div class="output-block">
       <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">work</span></div>
       <div class="output-content">
-        <div class="section-label">experience</div>
         ${WORK.map((w,i) => `<div class="work-entry" id="we-${i}" onclick="selectWork(${i})">
           <div class="work-header">
             <span class="work-company">${w.co}</span>
@@ -148,28 +144,34 @@ const COMMANDS = {
     return html;
   },
 
-  how: () => `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">how</span></div>
-    <div class="output-content">
-      <div class="section-label">workflow</div>
-      <div class="how-step"><span class="num">01 — design</span><span class="text">Everything starts in <span class="hl">Figma</span>. Tokens, components, spacing — decided before a line of code is written.</span></div>
-      <div class="how-step"><span class="num">02 — bridge</span><span class="text"><span class="hl">Figma MCP</span> connects the design file directly to Cursor. No redlines. No handoff. No gap.</span></div>
-      <div class="how-step"><span class="num">03 — build</span><span class="text"><span class="hl">Cursor</span> reads the design and writes the code. I review, redirect, adjust. Not writing every line — making every decision.</span></div>
-      <div class="how-step"><span class="num">04 — think</span><span class="text"><span class="hl">Claude</span> for systems thinking — architecture, tradeoffs, writing. Also built Claude skills for my engineering team: UI polish, linting, design reviews.</span></div>
-      <div class="how-step"><span class="num">05 — enforce</span><span class="text">Building <span class="hl">eslint-plugin-design-system</span> — ESLint rules catching design token violations at the code level. Next: MCP server wrapper for Cursor agents.</span></div>
-      <div class="how-step how-step--aside"><span class="text">Didn't know what git was 18 months ago. ~300 contributions since. Now writing rules that flag engineers' code as wrong. Unclear if ironic or inevitable.</span></div>
-    </div>
-  </div>`,
 
-  now: () => `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">now</span></div>
+  process: () => `<div class="output-block">
+    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">process</span></div>
     <div class="output-content">
-      <div class="now-line">
-        <span>
-          Founding Designer at <a href="https://airbase.us" style="color: #FAFAFA; text-decoration: none;" onmouseover="this.style.textDecoration='underline'; this.style.textDecorationColor='#FAFAFA';" onmouseout="this.style.textDecoration='none';" target="_blank" rel="noopener noreferrer">Airbase</a> (a16z), building the brand, product, and office polaroid wall.
-     
-        </span>
+      <div class="process-block">
+        <div class="process-step">
+          <span class="process-icon">${iconHtml('lightbulb')}</span>
+          <div>
+            <div class="process-title">discovery</div>
+            <div class="process-desc">whiteboarding with engineers to define core product capabilities and requirements</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-icon">${iconHtml('pencil')}</span>
+          <div>
+            <div class="process-title">design</div>
+            <div class="process-desc">leveraging Paper.app, Figma, and Claude MCP to refine and polish interfaces</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-icon">${iconHtml('code')}</span>
+          <div>
+            <div class="process-title">implementation</div>
+            <div class="process-desc">Cursor for pushing design to production code</div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>`,
 
   changelog: () => {
@@ -179,7 +181,6 @@ const COMMANDS = {
     return `<div class="output-block">
     <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">changelog</span></div>
     <div class="output-content">
-      <div class="section-label">${CHANGELOG_SECTION_TITLE}</div>
       ${rows}
     </div>
   </div>`;
@@ -190,8 +191,7 @@ const COMMANDS = {
     <div class="output-content">
       <div class="help-block">
         work &nbsp;&nbsp;&nbsp;&nbsp;— roles and what was built<br>
-        how &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— workflow and tools<br>
-        now &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— what's being built right now<br>
+        process &nbsp;&nbsp;— design workflow<br>
         changelog — the real story<br>
         clear &nbsp;&nbsp;&nbsp;— clear terminal<br>
         <span class="help-block-dim">${iconHtml('chevron-left','help-kbd-icon')}${iconHtml('chevron-right','help-kbd-icon')} &nbsp;&nbsp;&nbsp;&nbsp;— browse screenshots on the right<br>
@@ -300,7 +300,6 @@ async function runAI(question) {
   output.insertAdjacentHTML('beforeend', `<div class="output-block" id="${id}">
     <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">${escapeHtml(question)}</span></div>
     <div class="output-content">
-      <div class="section-label">response</div>
       <div class="ai-text" id="${id}-text"><span class="text-muted-loading">...</span></div>
     </div>
   </div>`);
