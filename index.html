@@ -43,7 +43,6 @@
     <div id="panel-header">
       <span id="panel-co" class="panel-co-placeholder"><span class="panel-co-msg">type or click 'work'</span></span>
       <span id="panel-role"></span>
-      <span id="panel-blurb"></span>
     </div>
     <div id="panel-image">
       <div class="panel-empty" id="panel-empty">
@@ -81,7 +80,6 @@ const WORK = [
   {
     co: 'Airbase',
     role: 'Founding Designer · Jan 2026–present',
-    blurb: 'Building TONS. 75% Cursor, 15% Paper.design, 10% physical whiteboards.',
     desc: `Building TONS. 75% Cursor, 15% Paper.design, 10% physical whiteboards.`,
     tags: ['Seriously 0→1','Claude Skills','Design System','Branding','Cursor'],
     screens: [
@@ -94,7 +92,6 @@ const WORK = [
   {
     co: 'Gecko Robotics',
     role: 'Product Designer — Cantilever · 2025–2026',
-    blurb: 'LLM agent interface, time series monitoring, 2D/3D viz. Frontend code via Cursor.',
     desc: `Cantilever: AI + robotics platform for industrial inspection — <span class="hl">US Navy, US Air Force, oil & gas, power</span>.<br><br>Shipped: <span class="hl">LLM agent interface, case management, time series monitoring, 2D/3D timeline viz</span> — first 4 months. Pushed frontend code via Cursor. Enterprise design system + AI design system.<br><br>Established quarterly design planning framework. Increased design influence in eng roadmapping.<br><br>Started with zero git knowledge. <span class="hl">By month 6, opening PRs engineers approved.</span>`,
     tags: ['Cursor','LLM interfaces','AI design system','defense','frontend code'],
     screens: [
@@ -107,7 +104,6 @@ const WORK = [
   {
     co: 'True Anomaly',
     role: 'Product Designer #1 — Mosaic · Oct 2023–Jul 2025',
-    blurb: 'Unity → React. 0→1 design system. Flight-proven on two SpaceX missions.',
     desc: `Mosaic: satellite TT&C — tracking, telemetry, command. <span class="hl">First design hire.</span> Solo designer.<br><br>Full overhaul: Unity legacy → React web platform. Owned 0→1 design system, IA, operator workflows, 2D/3D visualizations. Led eng teams of up to 30. Reported to VP of Software. GTM team rep.<br><br><span class="hl">Currently in use on-orbit.</span> Software ran two SpaceX-launched missions.`,
     tags: ['0→1 design system','satellite TT&C','flight-proven','led 30 engineers','SpaceX'],
     screens: [
@@ -120,7 +116,6 @@ const WORK = [
   {
     co: 'BlueHalo',
     role: 'Product Designer #1 — Titan C-UAS · Jun 2021–Oct 2023',
-    blurb: '$75M+ sales. 35% ticket drop. DoD Program of Record.',
     desc: `Titan: counter-drone hardware-software system. Field operators, no cloud, no specialists. <span class="hl">First designer hired</span> at Citadel; stayed through BlueHalo acquisition.<br><br>66% of "hardware performance" tickets were UX failures. Redesigned IA, rewrote settings language, unified 800+ components, built Unit Info screen. <span class="hl">35% drop in tickets. 100% satisfaction on re-engagement.</span><br><br>Brand + marketing with CEO → successful M&A. Titan: <span class="stat">$75M+ sales, DoD Program of Record.</span>`,
     tags: ['defense','DoD PoR','$75M+ sales','M&A','800+ components'],
     screens: [
@@ -229,7 +224,6 @@ function updatePanel() {
   panelCo.classList.remove('panel-co-placeholder');
   panelCo.classList.add('panel-co--active');
   document.getElementById('panel-role').textContent = w.role;
-  document.getElementById('panel-blurb').textContent = w.blurb;
 
   const imageEl = document.getElementById('panel-image');
   const panelEmpty = document.getElementById('panel-empty');
