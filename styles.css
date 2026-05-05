@@ -40,6 +40,7 @@ html, body {
   background: #0a0a0a;
   color: var(--text-body);
   font-family: 'Geist Mono', monospace;
+  line-height: 1.4;
 }
 
 #split {
@@ -70,11 +71,11 @@ html, body {
   letter-spacing: 0.04em;
   margin-bottom: 0.4rem;
 }
-.intro .tagline { font-size: 12px; color: var(--text-body); line-height: 1.8; }
+.intro .tagline { font-size: 12px; color: var(--text-body); line-height: 1.4; }
 .intro .tagline .hl { color: var(--text-prominent); }
 .intro .tagline .tagline-dim { color: var(--text-muted); }
 
-.hints { margin-bottom: 2rem; font-size: 11px; color: var(--text-body); line-height: 2; }
+.hints { margin-bottom: 2rem; font-size: 11px; color: var(--text-body); line-height: 1.4; }
 .hints .cmd {
   color: var(--text-body);
   cursor: pointer;
@@ -119,20 +120,20 @@ html, body {
 .work-company { font-size:12px; color: var(--text-body); transition: color 0.15s; }
 .work-year { font-size:10px; color: var(--text-muted); margin-left:auto; }
 .work-role { font-size:10px; color: var(--text-muted); margin-bottom:0.3rem; }
-.work-desc { font-size:11px; color: var(--text-body); line-height:1.75; }
+.work-desc { font-size:11px; color: var(--text-body); line-height:1.4; }
 .work-desc .hl { color: var(--text-prominent); }
 .work-desc .stat { color: var(--text-prominent); }
 .work-tags { display:flex; flex-wrap:wrap; gap:3px; margin-top:0.4rem; }
 .tag { font-size:9px; color: var(--text-muted); border:1px solid #161616; padding:1px 6px; }
 
 /* changelog */
-.cl-entry { display:flex; gap:1.25rem; margin-bottom:0.75rem; font-size:11px; line-height:1.75; }
+.cl-entry { display:flex; gap:1.25rem; margin-bottom:0.75rem; font-size:11px; line-height:1.4; }
 .cl-v { color: var(--text-muted); white-space:nowrap; min-width:36px; padding-top:1px; }
 .cl-text { color: var(--text-body); }
 .cl-text .hl { color: var(--text-prominent); }
 
 /* how */
-.how-step { margin-bottom:0.9rem; font-size:11px; line-height:1.8; }
+.how-step { margin-bottom:0.9rem; font-size:11px; line-height:1.4; }
 .how-step .num { font-size:9px; color: var(--text-muted); letter-spacing:0.1em; display:block; margin-bottom:0.1rem; }
 .how-step .text { color: var(--text-body); }
 .how-step .text .hl { color: var(--text-prominent); }
@@ -140,18 +141,18 @@ html, body {
 .how-step--aside .text { color: var(--text-muted); font-size: 10px; }
 
 /* now */
-.now-line { font-size:11px; color: var(--text-body); line-height:1.9; margin-bottom:0.4rem; }
+.now-line { font-size:11px; color: var(--text-body); line-height:1.4; margin-bottom:0.4rem; }
 .now-line .hl { color: var(--text-prominent); }
 .now-line .dim { color: var(--text-muted); }
 .now-line--spaced { margin-top: 0.4rem; }
 .now-line--location { margin-top: 1rem; color: var(--text-body); }
 
 /* help */
-.help-block { font-size: 11px; color: var(--text-body); line-height: 2; }
+.help-block { font-size: 11px; color: var(--text-body); line-height: 1.4; }
 .help-block-dim { color: var(--text-muted); }
 
 /* ai */
-.ai-text { font-size:11px; color: var(--text-body); line-height:1.9; }
+.ai-text { font-size:11px; color: var(--text-body); line-height:1.4; }
 .ai-cursor {
   display:inline-block;
   width:6px;
@@ -203,7 +204,7 @@ html, body {
 .panel-co-placeholder { display: inline-flex; align-items: center; gap: 0.35rem; }
 .panel-co-msg { flex: 1; min-width: 0; }
 #panel-role { font-size: 10px; color: var(--text-muted); display: block; margin-bottom: 0.3rem; }
-#panel-blurb { font-size: 11px; color: var(--text-body); line-height: 1.6; display: block; }
+#panel-blurb { font-size: 11px; color: var(--text-body); line-height: 1.4; display: block; }
 
 #panel-image {
   flex: 1;
@@ -229,7 +230,7 @@ html, body {
   font-size: 11px;
   color: var(--text-muted);
   text-align: center;
-  line-height: 2;
+  line-height: 1.4;
 }
 
 #panel-footer {
@@ -252,7 +253,7 @@ html, body {
 
 /* process */
 .process-block { display: flex; flex-direction: column; gap: 0.9rem; }
-.process-step { display: flex; gap: 0.75rem; font-size: 11px; line-height: 1.75; }
+.process-step { display: flex; gap: 0.75rem; font-size: 11px; line-height: 1.4; }
 .process-icon { flex-shrink: 0; color: var(--text-muted); }
 .process-title { color: var(--text-prominent); font-size: 11px; margin-bottom: 0.2rem; }
 .process-desc { color: var(--text-body); font-size: 11px; }
