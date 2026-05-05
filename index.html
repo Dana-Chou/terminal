@@ -112,10 +112,7 @@ const WORK = [
     desc: `Titan C-UAS: autonomous hardware-software system for RF drone detection and jamming. DoD Program of Record.`,
     tags: ['Figma', 'HTML/CSS'],
     screens: [
-      { img: 'bluehalo-01.png', label: 'operator settings — redesigned IA' },
-      { img: 'bluehalo-02.png', label: 'threat tracking interface' },
-      { img: 'bluehalo-03.png', label: 'unit info summary screen' },
-      { img: 'bluehalo-04.png', label: '800+ component design system' },
+      { img: 'bluehalo-01.png', label: 'images coming soon.' },
     ]
   }
 ];
@@ -148,36 +145,36 @@ const COMMANDS = {
         <div class="process-step">
           <span class="process-icon">${iconHtml('brain')}</span>
           <div>
-            <div class="process-title">synthesize</div>
-            <div class="process-desc">use Granola to aggregate deep user research context. Analyze user feedback and user testing benchmarks.</div>
+            <div class="process-title">synthesis</div>
+            <div class="process-desc">Use Granola to aggregate deep user research context. Analyze user feedback and user testing benchmarks.</div>
           </div>
         </div>
         <div class="process-step">
           <span class="process-icon">${iconHtml('lightbulb')}</span>
           <div>
             <div class="process-title">discovery</div>
-            <div class="process-desc">whiteboarding with engineers to define core product capabilities and requirements</div>
+            <div class="process-desc">whiteboarding with engineers to define core product capabilities and requirements.</div>
           </div>
         </div>
         <div class="process-step">
           <span class="process-icon">${iconHtml('list-checks')}</span>
           <div>
-            <div class="process-title">decompose</div>
-            <div class="process-desc">leverage Linear Agent to crystallize and generate source-of-truth requirements. Automatically outputs engineering tickets, then pull tickets into Cursor.</div>
+            <div class="process-title">decomposition</div>
+            <div class="process-desc">Prompt Linear Agent to crystallize and generate source-of-truth requirements. Automatically outputs engineering tickets, then pull tickets into Cursor.</div>
           </div>
         </div>
         <div class="process-step">
           <span class="process-icon">${iconHtml('pencil')}</span>
           <div>
             <div class="process-title">design</div>
-            <div class="process-desc">leveraging Paper.app, Figma, and Claude MCP to refine and polish interfaces</div>
+            <div class="process-desc">Leverage Paper.design, Figma MCP, and Claudefor high exploration output. Take the best ideas and visually refine across all three tools.</div>
           </div>
         </div>
         <div class="process-step">
           <span class="process-icon">${iconHtml('code')}</span>
           <div>
             <div class="process-title">implementation</div>
-            <div class="process-desc">Cursor for pushing design to production code</div>
+            <div class="process-desc">Cursor for pushing to prod.</div>
           </div>
         </div>
       </div>
@@ -251,7 +248,7 @@ function updatePanel() {
   img.onerror = () => {
     img.classList.add('is-hidden');
     panelEmpty.classList.remove('is-hidden');
-    panelEmpty.textContent = s.label + '\n(add screenshot: ' + s.img + ')';
+    panelEmpty.textContent = 'images coming soon.';
   };
 
   document.getElementById('panel-label').textContent = s.label;
