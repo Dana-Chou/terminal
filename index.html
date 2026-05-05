@@ -146,10 +146,24 @@ const COMMANDS = {
     <div class="output-content">
       <div class="process-block">
         <div class="process-step">
+          <span class="process-icon">${iconHtml('brain')}</span>
+          <div>
+            <div class="process-title">synthesize</div>
+            <div class="process-desc">use Granola to aggregate deep user research context. Analyze user feedback and user testing benchmarks.</div>
+          </div>
+        </div>
+        <div class="process-step">
           <span class="process-icon">${iconHtml('lightbulb')}</span>
           <div>
             <div class="process-title">discovery</div>
             <div class="process-desc">whiteboarding with engineers to define core product capabilities and requirements</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="process-icon">${iconHtml('list-checks')}</span>
+          <div>
+            <div class="process-title">decompose</div>
+            <div class="process-desc">leverage Linear Agent to crystallize and generate source-of-truth requirements. Automatically outputs engineering tickets, then pull tickets into Cursor.</div>
           </div>
         </div>
         <div class="process-step">
@@ -342,7 +356,7 @@ async function runAI(question) {
     el.innerHTML = escapeHtml(text).replace(/\n/g,'<br>');
   } catch {
     const el = document.getElementById(`${id}-text`);
-    if (el) el.innerHTML = '<span class="text-error-dim">something went wrong.</span>';
+    if (el) el.innerHTML = '<span class="text-error-dim">out of tokens :(</span>';
   }
   scrollBottom();
 }
