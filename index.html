@@ -382,11 +382,14 @@ async function runAI(question) {
     let text = '';
     const reader = res.body.getReader();
     const dec = new TextDecoder();
+    let buf = '';
 
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      const lines = dec.decode(value).split('\n');
+      buf += dec.decode(value, { stream: true });
+      const lines = buf.split('\n');
+      buf = lines.pop();
       for (const line of lines) {
         if (!line.startsWith('data: ')) continue;
         const data = line.slice(6);
