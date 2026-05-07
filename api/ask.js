@@ -1,8 +1,8 @@
 export const config = { runtime: 'edge' };
 
 const ALLOWED_ORIGINS = [
-  'https://danachou.com',
-  'https://www.danachou.com',
+  'https://a16z.danachou.cv',
+  'https://project-g5muu-qio1yp962-danas-projects-af28ae5f.vercel.app',
   'http://localhost:3000',
 ];
 
@@ -29,7 +29,7 @@ export default async function handler(req) {
       'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify({
-      model: body.model || 'claude-sonnet-4-5',
+      model: body.model || 'claude-haiku-4-5',
       max_tokens: Math.min(body.max_tokens || 200, 500),
       stream: true,
       system: body.system,
