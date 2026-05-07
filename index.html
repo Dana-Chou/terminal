@@ -16,7 +16,7 @@
       <div class="intro">
         <div class="name">Dana Chou</div>
         <div class="tagline">
-          Deep tech software designer slinging some code around. No one has complained yet.<br><Br>
+          Deep tech software designer who started slinging some code around a few months ago. No one has complained yet.<br><Br>
           Select or type one of these into the command line.<br>
         </div>
       </div>
@@ -314,13 +314,11 @@ async function runAI(question) {
   scrollBottom();
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch('/api/ask', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 100,
-        stream: true,
+        max_tokens: 200,
         system: DANA_CONTEXT,
         messages: [{ role: 'user', content: question }]
       })
