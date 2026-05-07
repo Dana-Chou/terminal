@@ -208,6 +208,51 @@ const COMMANDS = {
   </div>`,
 };
 
+function cowsay(msg) {
+  const safe = escapeHtml(msg);
+  const bar = '_'.repeat(safe.length + 2);
+  const dash = '-'.repeat(safe.length + 2);
+  return `<pre class="cowsay"> ${bar}
+&lt; ${safe} &gt;
+ ${dash}
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||</pre>`;
+}
+
+function shellReply(cmd, text) {
+  return `<div class="output-block">
+    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">${escapeHtml(cmd)}</span></div>
+    <div class="output-content"><div class="ai-text">${text}</div></div>
+  </div>`;
+}
+
+const SHELL_REPLIES = {
+  'ls': "you're already looking at everything. try `help`.",
+  'pwd': '/dana',
+  'cd': 'no folders here. you\'re home.',
+  'cd ..': 'no parents here, just me.',
+  'cd ~': 'already home.',
+  'whoami': 'depends. who are <em>you</em>?',
+  'sudo': 'no root for you. try asking nicely.',
+  'sudo !!': 'still no.',
+  'rm -rf /': 'nice try. nothing\'s actually here to delete.',
+  'vim': 'good luck escaping.',
+  'emacs': 'we don\'t do editor wars here.',
+  ':q': 'you made it out.',
+  'exit': 'you can just close the tab, you know.',
+  'quit': 'you can just close the tab, you know.',
+  'ping': 'pong',
+  'hi': 'hey.',
+  'hello': 'hey.',
+  'man dana': 'no manual. ask me anything instead.',
+};
+for (const [k, v] of Object.entries(SHELL_REPLIES)) {
+  COMMANDS[k] = () => shellReply(k, v);
+}
+
 /* ── PANEL STATE ── */
 let activeWork = null;
 let activeScreen = 0;
@@ -292,6 +337,14 @@ function runCommand(raw) {
   if (COMMANDS[lower]) {
     output.insertAdjacentHTML('beforeend', COMMANDS[lower]());
     refreshLucide();
+    input.value = '';
+    scrollBottom();
+    return;
+  }
+
+  if (lower === 'cowsay' || lower.startsWith('cowsay ')) {
+    const msg = trimmed.slice(7).trim() || 'moo';
+    output.insertAdjacentHTML('beforeend', shellReply(trimmed, cowsay(msg)));
     input.value = '';
     scrollBottom();
     return;
