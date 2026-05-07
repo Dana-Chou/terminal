@@ -112,7 +112,7 @@ const WORK = [
     desc: `Titan C-UAS: autonomous hardware-software system for RF drone detection and jamming. DoD Program of Record.`,
     tags: ['Figma', 'HTML/CSS'],
     screens: [
-      { img: 'bluehalo-01.png', label: 'images coming soon.' },
+      { img: 'bluehalo-01.png', label: 'operator settings — redesigned IA' },
     ]
   }
 ];
@@ -353,7 +353,7 @@ async function runAI(question) {
     el.innerHTML = escapeHtml(text).replace(/\n/g,'<br>');
   } catch {
     const el = document.getElementById(`${id}-text`);
-    if (el) el.innerHTML = '<span class="text-error-dim">out of tokens :(</span>';
+    if (el) el.innerHTML = '<span class="text-error-dim">oops, didn\'t pay for enough tokens</span>';
   }
   scrollBottom();
 }
