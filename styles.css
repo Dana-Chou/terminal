@@ -153,6 +153,7 @@ html, body {
 
 /* ai */
 .ai-text { font-size:12px; color: var(--text-body); line-height:1.4; }
+.cowsay { font-family:'Geist Mono',monospace; font-size:12px; line-height:1.2; margin:0; white-space:pre; color:var(--text-body); }
 .ai-cursor {
   display:inline-block;
   width:6px;
