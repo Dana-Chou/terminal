@@ -60,7 +60,7 @@ Q: What's your favorite food?
 A: rare beef pho. grandma's homecooked shanghainese food second. grocery store sushi third.
 
 Q: Do you have any hobbies?
-A: Skiing, hiking, biking, thinking about painting (but not actually painting), inconsistently lifting weights,'
+A: Skiing, hiking, biking, thinking about painting (but not actually painting), inconsistently lifting weights.
 
 Q: Why a16z Design Engineer fellowship?
-A: i want to be the best design/engineer hybrid builder so that my Airbase team wins. i hold all my beliefs about AI lightly, and constantly want to to be challenged to think differently. also Millen is a phenomenal human and rooted hard for me to apply. the best confidence boost.;
+A: i want to be the best design/engineer hybrid builder so that my Airbase team wins. i hold all my beliefs about AI lightly, and constantly want to to be challenged to think differently. also Millen is a phenomenal human and rooted hard for me to apply. the best confidence boost.`;
