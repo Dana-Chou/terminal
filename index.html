@@ -1,159 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dana Chou</title>
-<link rel="stylesheet" href="styles.css?v=3">
-</head>
-<body>
-<script defer src="/_vercel/insights/script.js"></script>    
-<div id="split">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dana Chou</title>
+    <link rel="stylesheet" href="styles.css?v=3" />
+  </head>
+  <body>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <div id="split">
+      <!-- LEFT -->
+      <div id="left">
+        <div id="scroll-area">
+          <div class="intro">
+            <div class="name">Dana Chou</div>
+            <div class="tagline">
+              deep tech software designer who started slinging some code around
+              a few months ago. no one has complained yet.<br /><br />
+              select or type one of these into the command line.<br />
+            </div>
+          </div>
 
-  <!-- LEFT -->
-  <div id="left">
-    <div id="scroll-area">
-      <div class="intro">
-        <div class="name">Dana Chou</div>
-        <div class="tagline">
-          deep tech software designer who started slinging some code around a few months ago. no one has complained yet.<br><Br>
-          select or type one of these into the command line.<br>
+          <div class="hints">
+            <span class="hints-lead"
+              ><span class="cmd" onclick="runCommand('work')">work</span> &nbsp;
+              <span class="cmd" onclick="runCommand('process')">process</span>
+              &nbsp;
+              <span class="cmd" onclick="runCommand('changelog')"
+                >changelog</span
+              >
+              &nbsp;
+              <span class="cmd" onclick="askRandom()"
+                >ask me anything</span
+              ></span
+            >
+          </div>
+
+          <div id="output"></div>
+          <div class="scroll-spacer"></div>
+        </div>
+
+        <div id="input-bar">
+          <input
+            id="cmd-input"
+            type="text"
+            placeholder="type a command or ask anything..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <span id="human-stage" aria-hidden="true">
+            <svg
+              id="pixel-human"
+              width="10"
+              height="16"
+              viewBox="0 0 5 8"
+              shape-rendering="crispEdges"
+            >
+              <rect x="1" y="0" width="3" height="2" />
+              <rect x="2" y="2" width="1" height="1" />
+              <rect x="0" y="3" width="5" height="1" />
+              <rect x="1" y="4" width="3" height="2" />
+              <rect class="leg leg-l" x="1" y="6" width="1" height="2" />
+              <rect class="leg leg-r" x="3" y="6" width="1" height="2" />
+            </svg>
+          </span>
         </div>
       </div>
 
-      <div class="hints">
-        <span class="hints-lead"><span class="cmd" onclick="runCommand('work')">work</span> &nbsp;
-        <span class="cmd" onclick="runCommand('process')">process</span> &nbsp;
-        <span class="cmd" onclick="runCommand('changelog')">changelog</span> &nbsp;
-        <span class="cmd" onclick="askRandom()">ask me anything</span>
+      <!-- RIGHT -->
+      <div id="right">
+        <div id="panel-header">
+          <span id="panel-co" class="panel-co-placeholder"></span>
+          <span id="panel-role"></span>
+        </div>
+        <div id="panel-image">
+          <div class="panel-empty" id="panel-empty"></div>
+        </div>
+        <div id="panel-footer">
+          <span id="panel-label"></span>
+          <span class="panel-hint" id="panel-hint"></span>
+          <span id="panel-counter"></span>
+        </div>
       </div>
-
-      <div id="output"></div>
-      <div class="scroll-spacer"></div>
     </div>
 
-    <div id="input-bar">
-      <input id="cmd-input" type="text" placeholder="type a command or ask anything..." autocomplete="off" spellcheck="false" />
-      <span id="human-stage" aria-hidden="true">
-        <svg id="pixel-human" width="10" height="16" viewBox="0 0 5 8" shape-rendering="crispEdges">
-          <rect x="1" y="0" width="3" height="2"/>
-          <rect x="2" y="2" width="1" height="1"/>
-          <rect x="0" y="3" width="5" height="1"/>
-          <rect x="1" y="4" width="3" height="2"/>
-          <rect class="leg leg-l" x="1" y="6" width="1" height="2"/>
-          <rect class="leg leg-r" x="3" y="6" width="1" height="2"/>
-        </svg>
-      </span>
-    </div>
-  </div>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+    <script src="dana-context.js?v=4"></script>
+    <script src="changelog.js?v=3"></script>
+    <script>
+      function iconHtml(name, extraClass = "") {
+        const cls = ["lucide-icon", extraClass].filter(Boolean).join(" ");
+        return `<i data-lucide="${name}" class="${cls}" aria-hidden="true"></i>`;
+      }
 
-  <!-- RIGHT -->
-  <div id="right">
-    <div id="panel-header">
-      <span id="panel-co" class="panel-co-placeholder"></span>
-      <span id="panel-role"></span>
-    </div>
-    <div id="panel-image">
-      <div class="panel-empty" id="panel-empty"></div>
-    </div>
-    <div id="panel-footer">
-      <span id="panel-label"></span>
-      <span class="panel-hint" id="panel-hint"></span>
-      <span id="panel-counter"></span>
-    </div>
-  </div>
+      function refreshLucide() {
+        if (typeof lucide !== "undefined" && lucide.createIcons)
+          lucide.createIcons();
+      }
 
-</div>
-
-<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
-<script src="dana-context.js?v=4"></script>
-<script src="changelog.js?v=3"></script>
-<script>
-function iconHtml(name, extraClass = '') {
-  const cls = ['lucide-icon', extraClass].filter(Boolean).join(' ');
-  return `<i data-lucide="${name}" class="${cls}" aria-hidden="true"></i>`;
-}
-
-function refreshLucide() {
-  if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
-}
-
-/* ── WORK DATA ──
+      /* ── WORK DATA ──
    Replace img paths with your actual screenshot filenames.
    Put screenshots in the same folder as this HTML file.
    Suggested naming: airbase-01.png, gecko-01.png, etc.
 */
-const WORK = [
-  {
-    co: 'Airbase',
-    role: 'founding designer · Jan 2026–present',
-    desc: `backed by a16z. building software for RF spectrum licensing, coordination, and intelligence in the AI-era.`,
-    tags: ['Claude','Paper.design', 'Flora', 'Linear Agent', 'Figma MCP', 'seriously 0→1',],
-    screens: [
-      { img: 'airbase-01.png', label: 'logo' },
-      { img: 'airbase-02.png', label: 'company website' },
-    ]
-  },
-  {
-    co: 'Gecko Robotics',
-    role: 'product designer — Cantilever',
-    desc: `AI + robotics platform to diagnose and understand the health of critical infrastructure. designed for US Navy, US Air Force, oil & gas, and power accounts.`,
-    tags: ['Cursor','Figma MCP'],
-    screens: [
-      { img: 'gecko-01.png', label: 'LLM agent interface' },
-      { img: 'gecko-04.png', label: 'platform landing page' },
-    ]
-  },
-  {
-    co: 'True Anomaly',
-    role: 'sr. product designer — Mosaic',
-    desc: `mission control software for space defense satellites. lead designer focused on telemetry, tracking, and command (TT&C).`,
-    tags: ['Figma', 'Storybook'],
-    screens: [
-      { img: 'trueanomaly-01.png', label: 'satellite communications view' },
-      { img: 'trueanomaly-02.png', label: 'orbital maneuver builder cards' },
-      { img: 'trueanomaly-03.png', label: 'mission work planning (concept)' },
-      { img: 'trueanomaly-04.png', label: 'flight software scripting (concept)' },
-    ]
-  },
-  {
-    co: 'BlueHalo',
-    role: 'product designer — Titan C-UAS',
-    desc: `Titan C-UAS: autonomous hardware-software system for RF drone detection and jamming. DoD program of record.`,
-    tags: ['Figma', 'HTML/CSS'],
-    screens: [
-      { img: 'bluehalo-01.png', label: 'operator settings — redesigned IA' },
-    ]
-  }
-];
+      const WORK = [
+        {
+          co: "Airbase",
+          role: "founding designer · Jan 2026–present",
+          desc: `backed by a16z. building software for RF spectrum licensing, coordination, and intelligence in the AI-era.`,
+          tags: [
+            "Claude",
+            "Paper.design",
+            "Flora",
+            "Linear Agent",
+            "Figma MCP",
+            "seriously 0→1",
+          ],
+          screens: [
+            { img: "airbase-01.png", label: "logo" },
+            { img: "airbase-02.png", label: "company website" },
+          ],
+        },
+        {
+          co: "Gecko Robotics",
+          role: "product designer — Cantilever",
+          desc: `AI + robotics platform to diagnose and understand the health of critical infrastructure. designed for US Navy, US Air Force, oil & gas, and power accounts.`,
+          tags: ["Cursor", "Figma MCP"],
+          screens: [
+            { img: "gecko-01.png", label: "LLM agent interface" },
+            { img: "gecko-04.png", label: "platform landing page" },
+          ],
+        },
+        {
+          co: "True Anomaly",
+          role: "sr. product designer — Mosaic",
+          desc: `mission control software for space defense satellites. lead designer focused on telemetry, tracking, and command (TT&C).`,
+          tags: ["Figma", "Storybook"],
+          screens: [
+            {
+              img: "trueanomaly-01.png",
+              label: "satellite communications view",
+            },
+            {
+              img: "trueanomaly-02.png",
+              label: "orbital maneuver builder cards",
+            },
+            {
+              img: "trueanomaly-03.png",
+              label: "mission work planning (concept)",
+            },
+            {
+              img: "trueanomaly-04.png",
+              label: "flight software scripting (concept)",
+            },
+          ],
+        },
+        {
+          co: "BlueHalo",
+          role: "product designer — Titan C-UAS",
+          desc: `Titan C-UAS: autonomous hardware-software system for RF drone detection and jamming. DoD program of record.`,
+          tags: ["Figma", "HTML/CSS"],
+          screens: [
+            {
+              img: "bluehalo-01.png",
+              label: "operator settings — redesigned IA",
+            },
+          ],
+        },
+      ];
 
-const COMMANDS = {
-  work: () => {
-    const html = `<div class="output-block">
-      <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">work</span></div>
+      const COMMANDS = {
+        work: () => {
+          const html = `<div class="output-block">
+      <div class="prompt-line"><span class="prompt-char">${iconHtml("chevron-right")}</span><span class="prompt-cmd">work</span></div>
       <div class="output-content">
-        ${WORK.map((w,i) => `<div class="work-entry" id="we-${i}" onclick="selectWork(${i})">
+        ${WORK.map(
+          (
+            w,
+            i,
+          ) => `<div class="work-entry" id="we-${i}" onclick="selectWork(${i})">
           <div class="work-header">
             <span class="work-company">${w.co}</span>
-            <span class="work-year">${w.role.split('·')[1] ? w.role.split('·')[1].trim() : ''}</span>
+            <span class="work-year">${w.role.split("·")[1] ? w.role.split("·")[1].trim() : ""}</span>
           </div>
-          <div class="work-role">${w.role.split('·')[0].trim()}</div>
+          <div class="work-role">${w.role.split("·")[0].trim()}</div>
           <div class="work-desc">${w.desc}</div>
-          <div class="work-tags">${w.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-        </div>`).join('')}
+          <div class="work-tags">${w.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
+        </div>`,
+        ).join("")}
       </div>
     </div>`;
-    setTimeout(() => selectWork(0), 50);
-    return html;
-  },
+          setTimeout(() => selectWork(0), 50);
+          return html;
+        },
 
-
-  process: () => `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">process</span></div>
+        process: () => `<div class="output-block">
+    <div class="prompt-line"><span class="prompt-char">${iconHtml("chevron-right")}</span><span class="prompt-cmd">process</span></div>
     <div class="output-content">
       <div class="process-block">
         <div class="process-step">
-          <span class="process-icon">${iconHtml('brain')}</span>
+          <span class="process-icon">${iconHtml("brain")}</span>
           <div>
             <div class="process-desc">worth noting that the process is generally messy and never linear. but i feel more confident in selecting the right tool for the righ time.</div>
           </div>
@@ -163,28 +209,28 @@ const COMMANDS = {
           </div>
         </div>
         <div class="process-step">
-          <span class="process-icon">${iconHtml('lightbulb')}</span>
+          <span class="process-icon">${iconHtml("lightbulb")}</span>
           <div>
             <div class="process-title">discovery</div>
             <div class="process-desc">whiteboard with engineers to define core product services, business logic, and system design.</div>
           </div>
         </div>
         <div class="process-step">
-          <span class="process-icon">${iconHtml('list-checks')}</span>
+          <span class="process-icon">${iconHtml("list-checks")}</span>
           <div>
             <div class="process-title">decomposition</div>
             <div class="process-desc">prompt Linear Agent to crystallize and generate source-of-truth requirements. automatically outputs engineering tickets, then pull tickets into Cursor.</div>
           </div>
         </div>
         <div class="process-step">
-          <span class="process-icon">${iconHtml('pencil')}</span>
+          <span class="process-icon">${iconHtml("pencil")}</span>
           <div>
             <div class="process-title">design</div>
             <div class="process-desc">leverage Paper.design, Figma MCP, and Claude for high exploration output. take the best ideas and visually refine across all three tools.</div>
           </div>
         </div>
         <div class="process-step">
-          <span class="process-icon">${iconHtml('code')}</span>
+          <span class="process-icon">${iconHtml("code")}</span>
           <div>
             <div class="process-title">implementation</div>
             <div class="process-desc">Cursor for pushing to prod.</div>
@@ -194,38 +240,39 @@ const COMMANDS = {
     </div>
   </div>`,
 
-  changelog: () => {
-    const rows = CHANGELOG_ENTRIES.map(
-      (e) => `<div class="cl-entry"><span class="cl-v">${e.v}</span><span class="cl-text">${e.body}</span></div>`
-    ).join('');
-    return `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">changelog</span></div>
+        changelog: () => {
+          const rows = CHANGELOG_ENTRIES.map(
+            (e) =>
+              `<div class="cl-entry"><span class="cl-v">${e.v}</span><span class="cl-text">${e.body}</span></div>`,
+          ).join("");
+          return `<div class="output-block">
+    <div class="prompt-line"><span class="prompt-char">${iconHtml("chevron-right")}</span><span class="prompt-cmd">changelog</span></div>
     <div class="output-content">
       ${rows}
     </div>
   </div>`;
-  },
+        },
 
-  help: () => `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">help</span></div>
+        help: () => `<div class="output-block">
+    <div class="prompt-line"><span class="prompt-char">${iconHtml("chevron-right")}</span><span class="prompt-cmd">help</span></div>
     <div class="output-content">
       <div class="help-block">
         work &nbsp;&nbsp;&nbsp;&nbsp;— roles and what was built<br>
         process &nbsp;&nbsp;— design workflow<br>
         changelog — the real story<br>
         clear &nbsp;&nbsp;&nbsp;— clear terminal<br>
-        <span class="help-block-dim">${iconHtml('arrow-left','help-kbd-icon')}${iconHtml('arrow-right','help-kbd-icon')} &nbsp;&nbsp;&nbsp;&nbsp;— browse screenshots on the right<br>
-        anything else ${iconHtml('arrow-right','help-kbd-icon')} ask</span>
+        <span class="help-block-dim">${iconHtml("arrow-left", "help-kbd-icon")}${iconHtml("arrow-right", "help-kbd-icon")} &nbsp;&nbsp;&nbsp;&nbsp;— browse screenshots on the right<br>
+        anything else ${iconHtml("arrow-right", "help-kbd-icon")} ask</span>
       </div>
     </div>
   </div>`,
-};
+      };
 
-function cowsay(msg) {
-  const safe = escapeHtml(msg);
-  const bar = '_'.repeat(safe.length + 2);
-  const dash = '-'.repeat(safe.length + 2);
-  return `<pre class="cowsay"> ${bar}
+      function cowsay(msg) {
+        const safe = escapeHtml(msg);
+        const bar = "_".repeat(safe.length + 2);
+        const dash = "-".repeat(safe.length + 2);
+        return `<pre class="cowsay"> ${bar}
 &lt; ${safe} &gt;
  ${dash}
         \\   ^__^
@@ -233,239 +280,262 @@ function cowsay(msg) {
             (__)\\       )\\/\\
                 ||----w |
                 ||     ||</pre>`;
-}
+      }
 
-function shellReply(cmd, text) {
-  return `<div class="output-block">
-    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">${escapeHtml(cmd)}</span></div>
+      function shellReply(cmd, text) {
+        return `<div class="output-block">
+    <div class="prompt-line"><span class="prompt-char">${iconHtml("chevron-right")}</span><span class="prompt-cmd">${escapeHtml(cmd)}</span></div>
     <div class="output-content"><div class="ai-text">${text}</div></div>
   </div>`;
-}
+      }
 
-const SHELL_REPLIES = {
-  'ls': "you're already looking at everything. try `help`.",
-  'pwd': '/dana',
-  'cd': 'no folders here. you\'re home.',
-  'cd ..': 'no parents here, just me.',
-  'cd ~': 'already home.',
-  'whoami': 'depends. who are <em>you</em>?',
-  'sudo': 'no root for you. try asking nicely.',
-  'sudo !!': 'still no.',
-  'rm -rf /': 'nice try. nothing\'s actually here to delete.',
-  'vim': 'good luck escaping.',
-  'emacs': 'we don\'t do editor wars here.',
-  ':q': 'you made it out.',
-  'exit': 'you can just close the tab, you know.',
-  'quit': 'you can just close the tab, you know.',
-  'ping': 'pong',
-  'hi': 'hey.',
-  'hello': 'hey.',
-  'man dana': 'no manual. ask me anything instead.',
-};
-for (const [k, v] of Object.entries(SHELL_REPLIES)) {
-  COMMANDS[k] = () => shellReply(k, v);
-}
+      const SHELL_REPLIES = {
+        ls: "you're already looking at everything. try `help`.",
+        pwd: "/dana",
+        cd: "no folders here. you're home.",
+        "cd ..": "no parents here, just me.",
+        "cd ~": "already home.",
+        whoami: "depends. who are <em>you</em>?",
+        sudo: "no root for you. try asking nicely.",
+        "sudo !!": "still no.",
+        "rm -rf /": "nice try. nothing's actually here to delete.",
+        vim: "good luck escaping.",
+        emacs: "we don't do editor wars here.",
+        ":q": "you made it out.",
+        exit: "you can just close the tab, you know.",
+        quit: "you can just close the tab, you know.",
+        ping: "pong",
+        hi: "hey.",
+        hello: "hey.",
+        "man dana": "no manual. ask me anything instead.",
+      };
+      for (const [k, v] of Object.entries(SHELL_REPLIES)) {
+        COMMANDS[k] = () => shellReply(k, v);
+      }
 
-/* ── PANEL STATE ── */
-let activeWork = null;
-let activeScreen = 0;
+      /* ── PANEL STATE ── */
+      let activeWork = null;
+      let activeScreen = 0;
 
-function selectWork(idx) {
-  activeWork = idx;
-  activeScreen = 0;
-  updatePanel();
-  document.querySelectorAll('.work-entry').forEach((el, i) => {
-    el.classList.toggle('active', i === idx);
-  });
-}
+      function selectWork(idx) {
+        activeWork = idx;
+        activeScreen = 0;
+        updatePanel();
+        document.querySelectorAll(".work-entry").forEach((el, i) => {
+          el.classList.toggle("active", i === idx);
+        });
+      }
 
-function updatePanel() {
-  if (activeWork === null) return;
-  const w = WORK[activeWork];
-  const s = w.screens[activeScreen];
+      function updatePanel() {
+        if (activeWork === null) return;
+        const w = WORK[activeWork];
+        const s = w.screens[activeScreen];
 
-  const panelCo = document.getElementById('panel-co');
-  panelCo.textContent = w.co;
-  panelCo.classList.remove('panel-co-placeholder');
-  panelCo.classList.add('panel-co--active');
-  document.getElementById('panel-role').textContent = w.role;
+        const panelCo = document.getElementById("panel-co");
+        panelCo.textContent = w.co;
+        panelCo.classList.remove("panel-co-placeholder");
+        panelCo.classList.add("panel-co--active");
+        document.getElementById("panel-role").textContent = w.role;
 
-  const imageEl = document.getElementById('panel-image');
-  const panelEmpty = document.getElementById('panel-empty');
-  panelEmpty.classList.add('is-hidden');
+        const imageEl = document.getElementById("panel-image");
+        const panelEmpty = document.getElementById("panel-empty");
+        panelEmpty.classList.add("is-hidden");
 
-  let img = imageEl.querySelector('img');
-  if (!img) {
-    img = document.createElement('img');
-    imageEl.appendChild(img);
-  }
-  img.classList.remove('loaded', 'is-hidden');
-  img.alt = s.label;
-  img.src = s.img;
-  img.onload = () => img.classList.add('loaded');
-  img.onerror = () => {
-    img.classList.add('is-hidden');
-    panelEmpty.classList.remove('is-hidden');
-    panelEmpty.textContent = 'images coming soon.';
-  };
+        let img = imageEl.querySelector("img");
+        if (!img) {
+          img = document.createElement("img");
+          imageEl.appendChild(img);
+        }
+        img.classList.remove("loaded", "is-hidden");
+        img.alt = s.label;
+        img.src = s.img;
+        img.onload = () => img.classList.add("loaded");
+        img.onerror = () => {
+          img.classList.add("is-hidden");
+          panelEmpty.classList.remove("is-hidden");
+          panelEmpty.textContent = "images coming soon.";
+        };
 
-  document.getElementById('panel-label').textContent = s.label;
-  document.getElementById('panel-counter').textContent = `${activeScreen + 1} / ${w.screens.length}`;
-  const hintEl = document.getElementById('panel-hint');
-  hintEl.innerHTML = `${iconHtml('arrow-left','panel-hint-icon')}${iconHtml('arrow-right','panel-hint-icon')}<span class="panel-hint-label"> to browse</span>`;
-  refreshLucide();
-}
+        document.getElementById("panel-label").textContent = s.label;
+        document.getElementById("panel-counter").textContent =
+          `${activeScreen + 1} / ${w.screens.length}`;
+        const hintEl = document.getElementById("panel-hint");
+        hintEl.innerHTML = `${iconHtml("arrow-left", "panel-hint-icon")}${iconHtml("arrow-right", "panel-hint-icon")}<span class="panel-hint-label"> to browse</span>`;
+        refreshLucide();
+      }
 
-function nextScreen(dir) {
-  if (activeWork === null) return;
-  const len = WORK[activeWork].screens.length;
-  activeScreen = (activeScreen + dir + len) % len;
-  updatePanel();
-}
+      function nextScreen(dir) {
+        if (activeWork === null) return;
+        const len = WORK[activeWork].screens.length;
+        activeScreen = (activeScreen + dir + len) % len;
+        updatePanel();
+      }
 
-/* ── TERMINAL LOGIC ── */
-const output = document.getElementById('output');
-const input = document.getElementById('cmd-input');
+      /* ── TERMINAL LOGIC ── */
+      const output = document.getElementById("output");
+      const input = document.getElementById("cmd-input");
 
-function escapeHtml(str) {
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
 
-function scrollBottom() {
-  const sa = document.getElementById('scroll-area');
-  sa.scrollTop = sa.scrollHeight;
-}
+      function scrollBottom() {
+        const sa = document.getElementById("scroll-area");
+        sa.scrollTop = sa.scrollHeight;
+      }
 
-const ASK_PROMPTS = [
-  'what did you build at airbase?',
-  'how did you learn to code?',
-  'why a16z?',
-  'what is your tool stack?',
-  'do you know react?',
-  'what is your favorite food?',
-  'what is the hardest engineering problem you have solved?',
-  'why did you leave gecko?',
-  'do you have any hobbies?',
-  'how did you get into deep tech?',
-];
-let askIndex = Math.floor(Math.random() * ASK_PROMPTS.length);
-function askRandom() {
-  const q = ASK_PROMPTS[askIndex % ASK_PROMPTS.length];
-  askIndex++;
-  runCommand(q);
-}
+      const ASK_PROMPTS = [
+        "what did you build at airbase?",
+        "how did you learn to code?",
+        "why a16z?",
+        "what is your tool stack?",
+        "do you know react?",
+        "what is your favorite food?",
+        "what is the hardest engineering problem you have solved?",
+        "why did you leave gecko?",
+        "do you have any hobbies?",
+        "how did you get into deep tech?",
+      ];
+      let askIndex = Math.floor(Math.random() * ASK_PROMPTS.length);
+      function askRandom() {
+        const q = ASK_PROMPTS[askIndex % ASK_PROMPTS.length];
+        askIndex++;
+        runCommand(q);
+      }
 
-function runCommand(raw) {
-  const trimmed = raw.trim();
-  const lower = trimmed.toLowerCase();
-  if (!trimmed) return;
+      function runCommand(raw) {
+        const trimmed = raw.trim();
+        const lower = trimmed.toLowerCase();
+        if (!trimmed) return;
 
-  if (lower === 'clear') {
-    output.innerHTML = '';
-    input.value = '';
-    return;
-  }
+        if (lower === "clear") {
+          output.innerHTML = "";
+          input.value = "";
+          return;
+        }
 
-  if (COMMANDS[lower]) {
-    output.insertAdjacentHTML('beforeend', COMMANDS[lower]());
-    refreshLucide();
-    input.value = '';
-    scrollBottom();
-    return;
-  }
+        if (COMMANDS[lower]) {
+          output.insertAdjacentHTML("beforeend", COMMANDS[lower]());
+          refreshLucide();
+          input.value = "";
+          scrollBottom();
+          return;
+        }
 
-  if (lower === 'cowsay' || lower.startsWith('cowsay ')) {
-    const msg = trimmed.slice(7).trim() || 'moo';
-    output.insertAdjacentHTML('beforeend', shellReply(trimmed, cowsay(msg)));
-    input.value = '';
-    scrollBottom();
-    return;
-  }
+        if (lower === "cowsay" || lower.startsWith("cowsay ")) {
+          const msg = trimmed.slice(7).trim() || "moo";
+          output.insertAdjacentHTML(
+            "beforeend",
+            shellReply(trimmed, cowsay(msg)),
+          );
+          input.value = "";
+          scrollBottom();
+          return;
+        }
 
-  runAI(trimmed);
-  input.value = '';
-  scrollBottom();
-}
+        runAI(trimmed);
+        input.value = "";
+        scrollBottom();
+      }
 
-async function runAI(question) {
-  const id = 'ai-' + Date.now();
-  output.insertAdjacentHTML('beforeend', `<div class="output-block" id="${id}">
-    <div class="prompt-line"><span class="prompt-char">${iconHtml('chevron-right')}</span><span class="prompt-cmd">${escapeHtml(question)}</span></div>
+      async function runAI(question) {
+        const id = "ai-" + Date.now();
+        output.insertAdjacentHTML(
+          "beforeend",
+          `<div class="output-block" id="${id}">
+    <div class="prompt-line"><span class="prompt-char">${iconHtml("chevron-right")}</span><span class="prompt-cmd">${escapeHtml(question)}</span></div>
     <div class="output-content">
       <div class="ai-text" id="${id}-text"><span class="text-muted-loading">...</span></div>
     </div>
-  </div>`);
-  refreshLucide();
-  scrollBottom();
+  </div>`,
+        );
+        refreshLucide();
+        scrollBottom();
 
-  try {
-    const res = await fetch('/api/ask', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        max_tokens: 200,
-        system: DANA_CONTEXT,
-        messages: [{ role: 'user', content: question }]
-      })
-    });
-
-    const el = document.getElementById(`${id}-text`);
-    el.innerHTML = '';
-    let text = '';
-    const reader = res.body.getReader();
-    const dec = new TextDecoder();
-    let buf = '';
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      buf += dec.decode(value, { stream: true });
-      const lines = buf.split('\n');
-      buf = lines.pop();
-      for (const line of lines) {
-        if (!line.startsWith('data: ')) continue;
-        const data = line.slice(6);
-        if (data === '[DONE]') break;
         try {
-          const p = JSON.parse(data);
-          if (p.type === 'content_block_delta' && p.delta?.text) {
-            text += p.delta.text;
-            el.innerHTML = escapeHtml(text).replace(/\n/g,'<br>') + '<span class="ai-cursor"></span>';
-            scrollBottom();
+          const res = await fetch("/api/ask", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              max_tokens: 200,
+              system: DANA_CONTEXT,
+              messages: [{ role: "user", content: question }],
+            }),
+          });
+
+          const el = document.getElementById(`${id}-text`);
+          el.innerHTML = "";
+          let text = "";
+          const reader = res.body.getReader();
+          const dec = new TextDecoder();
+          let buf = "";
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buf += dec.decode(value, { stream: true });
+            const lines = buf.split("\n");
+            buf = lines.pop();
+            for (const line of lines) {
+              if (!line.startsWith("data: ")) continue;
+              const data = line.slice(6);
+              if (data === "[DONE]") break;
+              try {
+                const p = JSON.parse(data);
+                if (p.type === "content_block_delta" && p.delta?.text) {
+                  text += p.delta.text;
+                  el.innerHTML =
+                    escapeHtml(text).replace(/\n/g, "<br>") +
+                    '<span class="ai-cursor"></span>';
+                  scrollBottom();
+                }
+              } catch {}
+            }
           }
-        } catch {}
+          el.innerHTML = escapeHtml(text).replace(/\n/g, "<br>");
+        } catch {
+          const el = document.getElementById(`${id}-text`);
+          if (el)
+            el.innerHTML =
+              '<span class="text-error-dim">oops, didn\'t pay for enough tokens</span>';
+        }
+        scrollBottom();
       }
-    }
-    el.innerHTML = escapeHtml(text).replace(/\n/g,'<br>');
-  } catch {
-    const el = document.getElementById(`${id}-text`);
-    if (el) el.innerHTML = '<span class="text-error-dim">oops, didn\'t pay for enough tokens</span>';
-  }
-  scrollBottom();
-}
 
-/* ── KEYBOARD ── */
-document.addEventListener('keydown', e => {
-  if (document.activeElement === input) {
-    if (e.key === 'Enter') { runCommand(input.value); return; }
-    return;
-  }
-  if (e.key === 'ArrowRight') nextScreen(1);
-  if (e.key === 'ArrowLeft') nextScreen(-1);
-});
+      /* ── KEYBOARD ── */
+      document.addEventListener("keydown", (e) => {
+        if (document.activeElement === input) {
+          if (e.key === "Enter") {
+            runCommand(input.value);
+            return;
+          }
+          return;
+        }
+        if (e.key === "ArrowRight") nextScreen(1);
+        if (e.key === "ArrowLeft") nextScreen(-1);
+      });
 
-input.addEventListener('keydown', e => {
-  if (e.key === 'Enter') runCommand(input.value);
-});
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") runCommand(input.value);
+      });
 
-/* Arrow keys work even when input is focused, but only for panel nav */
-input.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight' && input.value === '') { e.preventDefault(); nextScreen(1); }
-  if (e.key === 'ArrowLeft' && input.value === '') { e.preventDefault(); nextScreen(-1); }
-});
+      /* Arrow keys work even when input is focused, but only for panel nav */
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" && input.value === "") {
+          e.preventDefault();
+          nextScreen(1);
+        }
+        if (e.key === "ArrowLeft" && input.value === "") {
+          e.preventDefault();
+          nextScreen(-1);
+        }
+      });
 
-input.focus();
-refreshLucide();
-</script>
-</body>
+      input.focus();
+      refreshLucide();
+    </script>
+  </body>
 </html>
