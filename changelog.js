@@ -60,7 +60,7 @@ var CHANGELOG_ENTRIES = [
   },
   {
     v: "v3.4",
-    body: `260+ GitHub contributions to our frontend repo in 4 months. shipping to prod nearly daily. "you're an engineer, Dana." - Ari.`,
+    body: `260+ GitHub contributions to our frontend repo in 4 months. shipping to prod nearly daily. "you're an engineer now, Dana." - Ari. questionable, but i'll take it.`,
   },
   {
     v: "v3.6",
