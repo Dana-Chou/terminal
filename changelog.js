@@ -25,22 +25,22 @@ var CHANGELOG_ENTRIES = [
   {
     v: "v1.4",
     h: `rebadged as "aN eNgInEeR"`,
-    body: `reported to VP of Software, led many engineering delivery teams. asked if i could use AI tools. compliance said no :/ (fair).`,
+    body: `reported to VP of Software, led many engineering delivery teams. asked compliance if i could use AI tools. compliance said no :/ (fair).`,
   },
   {
     v: "v1.7",
     h: "second launch worked",
-    body: `saw software i designed from 0 in real operational use. flawless. still one of the greatest moments of my life.`,
+    body: `saw software i designed from 0-1 in real, on-orbit operational use. software was flawless. one of the greatest moments of my life.`,
   },
   {
     v: "v1.9",
     h: "left TA, went backpacking",
-    body: `tough decision. 3 weeks in SE Asia. used Claude to plan everything.`,
+    body: `really tough decision. backpacked in SE Asia for 3 weeks. used Claude to plan everything.`,
   },
   {
     v: "v2.0",
-    h: "moved to NYC, joined Gecko",
-    body: `product designer #3 on Cantilever, an AI + robotics data platform for industrial inspection. learned git and Cursor for the first time.`,
+    h: "moved from SD to NYC, joined Gecko Robotics",
+    body: `product designer #3 on Cantilever, an AI + robotics data platform for industrial inspections. learned git and Cursor for the first time. reacquainted with humidity.`,
   },
   {
     v: "v2.2",
