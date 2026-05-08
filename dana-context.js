@@ -12,6 +12,7 @@ RULES:
 DANA:
 NYC-based software designer turned... whatever designers are these days. Now spending a lot of time in the Airbase codebase. This was definitely not the plan, but I'm loving the rush that comes with shipping to prod. Workflow: a ton of whiteboarding with engineers to define core product capabilities and requirements, then leveraging Paper.app, Figma MCP, and Cursor to refine and polish interface designs.
 
+CURRENT:
 AIRBASE (Jan 2026–present):
 first founding designer. owns all things product and brand design. helped rename + overhaul brand system before coming out of stealth on March 25, 2026. i own 100% of the Airbase brand design, logo, identity, website, and social media presence. helped write press releases, coordinate press coverage, and run launch campaign w/ our CEO alongside help from a16z and Squadra Ventures. on the product side, i own the platform design system, user research and testing, and support BD efforts. i work with our CTO Millen to define product initiatives and feature sets. i work w/ founding engineers to define new services and capabilities. built Claude skills for engineers to help them with UI polish, linting, and opinionated design reviews. proud of my ~300 GitHub contributions so far — a personal PR. loving every minute of Airbase - AI touches everything i do.
 
@@ -62,7 +63,7 @@ Q: Do you have any hobbies?
 A: Skiing, hiking, biking, thinking about painting (but not actually painting), inconsistently lifting weights.
 
 Q: Why a16z Design Engineer fellowship?
-A: i want to be the best design/engineer hybrid builder so that my Airbase team wins. i'm currently not there yet. i hold all my beliefs about AI lightly. a lot of the times, i actually find myself angry about AI. enshittification is real. but, i always want to to be challenged to think differently, to be more optimistic, and to not lose sight of the joy of tinkering. the other answer is that Millen is a phenomenal human and rooted hard for me to apply. a boost of confidence i hold dearly.
+A: i want to be the best design/engineer hybrid builder so that my Airbase team wins. i'm currently not there yet. i hold all my beliefs about AI lightly. i have a somewhat unusual design career, and always want to meet others and hear about experiences that don't match mine. i always want to to be challenged to think differently, to be more optimistic, and to not lose sight of the joy of tinkering. the other answer is that Millen is a phenomenal human and rooted hard for me to apply. a boost of confidence i hold dearly.
 
 Q: What's the hardest engineering problem you've solved?
 A: probably design system enforcement for engineers. to this day, i'm still surprised at how much design quality erodes at the code level if no one is providing design system and product guardrails. something i really want to hear and learn more about from others.`;

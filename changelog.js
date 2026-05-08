@@ -1,45 +1,73 @@
 /** Content for the terminal `changelog` command. Each entry: version label + HTML body (e.g. <span class="hl">…</span>). */
-var CHANGELOG_SECTION_TITLE = 'release notes';
+var CHANGELOG_SECTION_TITLE = 'the arc of AI (dana edition)';
 
 var CHANGELOG_ENTRIES = [
   {
     v: 'v0.1',
-    body: `started at BlueHalo / Citadel Defense as the first designer, and quickly noticed something: <span class="hl">66% of support tickets were UX problems</span> dressed up as hardware failures. fixing the UX dropped tickets by 35% and ended up contributing to the company's M&A.`,
+    body: `first designer at BlueHalo / Citadel Defense. not bad at Figma, but had a lot to learn about product design / the defense industry.`,
   },
   {
     v: 'v0.5',
-    body: `unified 800+ components, rewrote the settings language, and redesigned the information architecture from the ground up. the work helped land <span class="hl">$75M+ in sales and a DoD program of record</span>, with the system eventually deployed to Ukraine. re-engaged customers reported 100% satisfaction.`,
+    body: `did a ton of work in Figma. designed + documented over 800 components. no AI tools yet. lots of engineering handoffs.`,
   },
   {
     v: 'v1.0',
-    body: `joined True Anomaly as the first product design hire. as a solo designer, I ended up <span class="hl">leading engineering teams of up to 30</span>. it took me a while to realize that wasn't typical.`,
+    body: `first product design hire at True Anomaly. solo designer on Mosaic, a satellite mission control platform. used ChatGPT for the first time to explain complex orbital mechanics concepts like i'm five.`,
   },
   {
     v: 'v1.3',
-    body: `rebuilt Mosaic from Unity to React, owning the 0→1 design system, IA, operator workflows, and visualizations end to end. <span class="hl">the software went on to run two SpaceX missions</span> — still the work I'm most proud of.`,
+    body: `first satellite launch went sorta bad. layoffs happened. only 2 product folks preserved: myself and Ari (now CEO of Airbase).`,
   },
   {
-    v: 'v1.6',
-    body: `joined Gecko Robotics. <span class="hl">did not know what git was.</span> asked an engineer what a pull request was, and he was very kind about it.`,
+    v: 'v1.4',
+    body: `started reporing to VP of Software as "aN eNgInEeR". ended up leading many engineering delivery teams. impacted tons of product surface area. asked if i could use AI tools. compliance said no :/ (fair).`,
   },
   {
-    v: 'v1.8',
-    body: `designed and shipped a net-new LLM agent interface and AI design system at Gecko, rolled out platform-wide. somewhere along the way <span class="hl">I started opening pull requests</span>, and the engineers — gracious as ever — approved them.`,
+    v: 'v1.7',
+    body: `second satellite launch. more successful than the first. got to see the software i designed entirely from 0 in real operational use. it worked flawlessly. still one of the greatest moments of my life.`,
+  },
+  {
+    v: 'v1.9',
+    body: `left TA. a really tough decision. backpacked through SE Asia for 3 weeks. used Claude to plan everything`,
   },
   {
     v: 'v2.0',
-    body: `joined Airbase as founding designer and <span class="hl">rebuilt a new brand identity from scratch </span>. before exiting stealth on March 25, 2026. suddenly had access to a ton of AI tools. now has a connect context thread starting from user research insights, to product requirements, engineering tickets, and design interfaces.`,
+    body: `moved to NYC and joined Gecko Robotics as product designer #3. started working on Cantilever, an AI + robotics data platform for industrial inspection. learned git and Cursor for the first time.`, 
+  },
+  {
+    v: 'v2.2',
+    body: `shipped design for Gecko's first enterprise LLM agent interface. first time owning a design system for AI.`,
   },
   {
     v: 'v2.4',
-    body: `<span class="hl">almost 300 GitHub contributions over four months.</span> shipping something to production nearly every day. who would've thought.`,
+    body: `Figma Make goes live. all product strategists and FDEs start using this for rapid designs. us product designers freaked out.`,
   },
   {
-    v: 'v2.6',
-    body: `realized design quality erodes at the code level, not the design level — so I shifted from documentation to enforcement. built <span class="hl">Claude skills for engineering</span> covering UI polish, linting, and design reviews. engineers use them daily.`,
+    v: 'v2.5',
+    body: `by month three, was shipping frontend code changes and getting PRs approved and merged by engineers. BFD.`,
   },
   {
-    v: 'v2.8',
-    body: `built a terminal instead of a portfolio. <span class="hl">applying to the a16z Design Engineer Fellowship.</span> feels correct.`,
+    v: 'v3.0',
+    body: `joined Airbase. smallest team i've ever been on. realized very quickly that i needed to lean heavily on AI tools to keep pace.`,
+  },
+  {
+    v: 'v3.1',
+    body: `suddenly a power user of Gemini, Claude, Cursor, Linear Agent, Granola, Figma MCP, Paper.design, Flora, and more. holy shit does life come at you fast.`,
+  },
+  {
+    v: 'v3.3',
+    body: `Airbase launches out of stealth on March 25, 2026. another huge milestone. looking back, seriously amazed at how much a tiny team could do w/ the help of AI.`
+  },
+  {
+    v: 'v3.4',
+    body: `260+ GitHub contributions to our frontend repo in 4 months. shipping to prod nearly daily. "you're an engineer, Dana." - Ari.`,
+  },
+  {
+    v: 'v3.6',
+    body: `built an opionionated design review Claude skill for engineers to leverage. on first use, "this is insanely helpful." - Millen`,
+  },
+  {
+    v: 'v3.8',
+    body: `built this thing for the a16z design engineer fellowship application. hopefully this was worth it :')`,
   },
 ];
