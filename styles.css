@@ -187,6 +187,39 @@ html, body {
 }
 #cmd-input::placeholder { color: #666666; }
 
+#human-stage {
+  flex-shrink: 0;
+  position: relative;
+  width: 60px;
+  height: 16px;
+}
+#pixel-human {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: var(--text-body);
+  opacity: 0.7;
+  animation: human-walk 5s linear infinite;
+}
+@keyframes human-walk {
+  0%   { left: 0px;  transform: scaleX(1); }
+  48%  { left: 50px; transform: scaleX(1); }
+  50%  { left: 50px; transform: scaleX(-1); }
+  98%  { left: 0px;  transform: scaleX(-1); }
+  100% { left: 0px;  transform: scaleX(1); }
+}
+#pixel-human .leg {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: human-step 0.5s steps(2, end) infinite;
+}
+#pixel-human .leg-r { animation-delay: 0.25s; }
+@keyframes human-step {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-1px); }
+  100% { transform: translateY(0); }
+}
+
 /* ── RIGHT: visual panel ── */
 #right {
   flex: 1;

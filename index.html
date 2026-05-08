@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
-
+import { Analytics } from "@vercel/analytics/next"
 <div id="split">
 
   <!-- LEFT -->
@@ -34,6 +34,16 @@
 
     <div id="input-bar">
       <input id="cmd-input" type="text" placeholder="type a command or ask anything..." autocomplete="off" spellcheck="false" />
+      <span id="human-stage" aria-hidden="true">
+        <svg id="pixel-human" width="10" height="16" viewBox="0 0 5 8" shape-rendering="crispEdges">
+          <rect x="1" y="0" width="3" height="2"/>
+          <rect x="2" y="2" width="1" height="1"/>
+          <rect x="0" y="3" width="5" height="1"/>
+          <rect x="1" y="4" width="3" height="2"/>
+          <rect class="leg leg-l" x="1" y="6" width="1" height="2"/>
+          <rect class="leg leg-r" x="3" y="6" width="1" height="2"/>
+        </svg>
+      </span>
     </div>
   </div>
 
