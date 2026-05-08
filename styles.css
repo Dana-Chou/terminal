@@ -261,6 +261,10 @@ body {
   min-width: 36px;
   padding-top: 1px;
 }
+.cl-v-0 { color: #6b6b6b; }   /* BlueHalo era */
+.cl-v-1 { color: #8b9dc3; }   /* True Anomaly era — cool blue */
+.cl-v-2 { color: #6fb98f; }   /* Gecko era — green */
+.cl-v-3 { color: #d96132; }   /* Airbase era — site accent */
 .cl-text {
   color: var(--text-body);
 }

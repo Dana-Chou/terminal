@@ -8,11 +8,11 @@ var CHANGELOG_ENTRIES = [
   },
   {
     v: "v0.5",
-    body: `did a ton of work in Figma. designed + documented over 800 components. no AI tools yet. lots of engineering handoffs.`,
+    body: `made loads of rectangles in Figma. designed + documented over 800 design system components. no AI tools yet, lots of engineering handoffs.`,
   },
   {
     v: "v1.0",
-    body: `first product design hire at True Anomaly. solo designer on Mosaic, a satellite mission control platform. used ChatGPT for the first time to explain complex orbital mechanics concepts like i'm five.`,
+    body: `first product design hire at True Anomaly. solo designer on Mosaic, a satellite mission control platform. used ChatGPT for the first time to "explain orbital mechanics concepts to me like i'm 5".`,
   },
   {
     v: "v1.3",
@@ -20,7 +20,7 @@ var CHANGELOG_ENTRIES = [
   },
   {
     v: "v1.4",
-    body: `started reporing to VP of Software as "aN eNgInEeR". ended up leading many engineering delivery teams. impacted tons of product surface area. asked if i could use AI tools. compliance said no :/ (fair).`,
+    body: `started reporting to VP of Software as "aN eNgInEeR". ended up leading many engineering delivery teams. impacted tons of product surface area. asked if i could use AI tools. compliance said no :/ (fair).`,
   },
   {
     v: "v1.7",
@@ -56,7 +56,7 @@ var CHANGELOG_ENTRIES = [
   },
   {
     v: "v3.3",
-    body: `Airbase launches out of stealth on March 25, 2026. another huge milestone. looking back, seriously amazed at how much a tiny team could do w/ the help of AI.`,
+    body: `Airbase launches out of stealth on March 25, 2026. another huge milestone. still amazed at how much a tiny team could do w/ the help of AI (and amazing investors).`,
   },
   {
     v: "v3.4",
