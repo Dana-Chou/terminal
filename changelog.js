@@ -68,6 +68,6 @@ var CHANGELOG_ENTRIES = [
   },
   {
     v: "v3.8",
-    body: `built this thing for the a16z design engineer fellowship application. hopefully this was worth it :')`,
+    body: `built this thing for the a16z design engineer fellowship application. hopefully this was worth it. writing about myself is scary !`,
   },
 ];
