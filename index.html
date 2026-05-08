@@ -25,7 +25,7 @@
         <span class="hints-lead"><span class="cmd" onclick="runCommand('work')">work</span> &nbsp;
         <span class="cmd" onclick="runCommand('process')">process</span> &nbsp;
         <span class="cmd" onclick="runCommand('changelog')">changelog</span> &nbsp;
-        <span class="cmd" onclick="runCommand('what did you build at airbase?')">ask me anything</span>
+        <span class="cmd" onclick="askRandom()">ask me anything</span>
       </div>
 
       <div id="output"></div>
@@ -321,6 +321,25 @@ function escapeHtml(str) {
 function scrollBottom() {
   const sa = document.getElementById('scroll-area');
   sa.scrollTop = sa.scrollHeight;
+}
+
+const ASK_PROMPTS = [
+  'what did you build at airbase?',
+  'how did you learn to code?',
+  'why a16z?',
+  'what is your tool stack?',
+  'do you know react?',
+  'what is your favorite food?',
+  'what is the hardest engineering problem you have solved?',
+  'why did you leave gecko?',
+  'do you have any hobbies?',
+  'how did you get into deep tech?',
+];
+let askIndex = Math.floor(Math.random() * ASK_PROMPTS.length);
+function askRandom() {
+  const q = ASK_PROMPTS[askIndex % ASK_PROMPTS.length];
+  askIndex++;
+  runCommand(q);
 }
 
 function runCommand(raw) {
