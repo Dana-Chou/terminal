@@ -12,11 +12,11 @@ var CHANGELOG_ENTRIES = [
   },
   {
     v: "v1.0",
-    body: `first product design hire at True Anomaly. solo designer on Mosaic, a satellite mission control platform. used ChatGPT for the first time to "explain orbital mechanics concepts to me like i'm 5".`,
+    body: `first product design hire at True Anomaly. solo designer on Mosaic, a satellite mission control platform. used ChatGPT for the first time to "explain orbital mechanics to me like i'm 5".`,
   },
   {
     v: "v1.3",
-    body: `first satellite launch went sorta bad. layoffs happened. only 2 product folks preserved: myself and Ari (now CEO of Airbase).`,
+    body: `first satellite launch went sorta bad. layoffs happened. only 2 product folks preserved: myself and Ari (hint: now CEO of Airbase).`,
   },
   {
     v: "v1.4",
