@@ -265,6 +265,15 @@ body {
 .cl-v-1 { color: #8b9dc3; }   /* True Anomaly era — cool blue */
 .cl-v-2 { color: #6fb98f; }   /* Gecko era — green */
 .cl-v-3 { color: #d96132; }   /* Airbase era — site accent */
+.cl-body {
+  flex: 1;
+  min-width: 0;
+}
+.cl-h {
+  color: var(--text-prominent);
+  font-size: 12px;
+  margin-bottom: 0.15rem;
+}
 .cl-text {
   color: var(--text-body);
 }

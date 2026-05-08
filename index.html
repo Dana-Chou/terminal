@@ -86,7 +86,7 @@
 
     <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
     <script src="dana-context.js?v=4"></script>
-    <script src="changelog.js?v=3"></script>
+    <script src="changelog.js?v=4"></script>
     <script>
       function iconHtml(name, extraClass = "") {
         const cls = ["lucide-icon", extraClass].filter(Boolean).join(" ");
@@ -243,7 +243,7 @@
         changelog: () => {
           const rows = CHANGELOG_ENTRIES.map(
             (e) =>
-              `<div class="cl-entry"><span class="cl-v cl-v-${e.v.replace(/^v(\d+).*/,'$1')}">${e.v}</span><span class="cl-text">${e.body}</span></div>`,
+              `<div class="cl-entry"><span class="cl-v cl-v-${e.v.replace(/^v(\d+).*/,'$1')}">${e.v}</span><div class="cl-body"><div class="cl-h">${e.h}</div><div class="cl-text">${e.body}</div></div></div>`,
           ).join("");
           return `<div class="output-block">
     <div class="prompt-line"><span class="prompt-char">${iconHtml("chevron-right")}</span><span class="prompt-cmd">changelog</span></div>
